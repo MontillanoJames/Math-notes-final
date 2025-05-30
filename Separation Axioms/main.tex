@@ -1,0 +1,659 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  My documentation report
+%  Objetive: Explain what I did and how, so someone can continue with the investigation
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article} % Default font size and left-justified equations
+
+\usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,letterpaper]{geometry} % Page margins
+
+\usepackage{xcolor} % Required for specifying colors by name
+\definecolor{ocre}{RGB}{52,177,201} % Define the orange color used for highlighting throughout the book
+
+% Font Settings
+\usepackage{avant} % Use the Avantgarde font for headings
+%\usepackage{times} % Use the Times font for headings
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+% Bibliography
+\usepackage[style=apa,sorting=nyt,sortcites=true,autopunct=true,babel=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
+
+\addbibresource{bibliography.bib} % BibTeX bibliography file
+\defbibheading{bibempty}{}
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+%----------------------------------------------------------------------------------------
+%	Definitions of new commands
+%----------------------------------------------------------------------------------------
+
+\def\R{\mathbb{R}}
+\newcommand{\cvx}{convex}
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\AddToShipoutPicture*{\put(0,0){\includegraphics[scale=1.05]{Pictures/covveeeer12.PNG}}} % Image background
+\centering{
+\vspace*{2.5cm}
+\par\normalfont\fontsize{35}{35}\sffamily\selectfont
+\textbf{Lecture Notes on Separation Axioms}\\
+{\LARGE Math 6201 - Topology } \\ % Book title
+\vspace{-0.3cm}{\Large AY 2024-2025 Term 1} \\
+{\Large  James Israel B. Montillano} \par \vspace{0.2 cm}  % Author name
+{\Large Romelyn M. Dumanhog} } \\~\\
+{\normalsize Department of Computer, Information Sciences, and Mathematics} \\
+{\small (May 2025)} \\
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+%\newpage
+%~\vfill
+%\thispagestyle{empty}
+
+%%\noindent Copyright \copyright\ 2014 Andrea Hidalgo\\ % Copyright notice
+
+%\noindent \textsc{Summer Research Internship, University of Western Ontario}\\
+
+%\noindent \textsc{github.com/LaurethTeX/Clustering}\\ % URL
+
+%\noindent This research was done under the supervision of Dr. Pauline Barmby with the financial support of the MITACS Globalink Research Internship Award within a total of 12 weeks, from June 16th to September 5th of 2014.\\ % License information
+
+%\noindent \textit{First release, August 2014} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\chapterimage{head1.png} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+\newpage
+\tableofcontents % Print the table of contents itself
+
+%\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\newpage
+%I edit nya ni romelyn kay kang cherlyn ni.
+\section{Preliminaries}
+This section reviews some fundamental concepts needed to understand the basic parts on separation axioms on topology. 
+
+\subsection{Sets}
+\begin{definition}[Subset]\parencite{lipschutz1965} A set $A$ is a subset of a set $B$ or, equivalently, $B$ is a superset of $A$, written $A\subset B$ or $B\supset A$ iff each element in $A$ also belongs to $B$; that is, if $x\in A$ implies $x\in B$.
+\end{definition}
+
+\begin{definition}[Union]\parencite{lipschutz1965}
+The union of two sets $A$ and $B$, denoted by $A\cup B$, is the set of all elements which belong to $A$ or $B$, i.e., $A\cup B = \{x:x\in A \quad \text{or} \quad x\in B\}$     
+\end{definition}
+
+\begin{definition}[Intersection]\parencite{lipschutz1965}
+The intersection of two sets $A$ and $B$, denoted by $A\cap B$, is the set of elements which belong to both $A$ and $B$, i.e., $A\cap B=\{x:x\in A \quad \text{and} \quad x\in B)$   
+\end{definition}
+
+
+\begin{definition}[Power Sets]\parencite{Dugundji1966}
+Let $A$ be any set. Its power set $\mathcal{P}(A)$ is the set of all subsets of $A$.
+\end{definition}
+
+\begin{definition}[Countable]\parencite{Dugundji1966}
+ A set $A$ is countable if it is finite or equivalent to the set $\mathbb{N}$ of counting
+ numbers. If $A\equiv N$, then $A$ is called countably infinite or denumerable.
+\end{definition}
+
+
+\subsection{Functions, or Maps}
+
+\begin{definition}[Map] \parencite{Dugundji1966}
+Let $X$ and $Y$ be two sets. A \textit{map} $f: X \rightarrow Y$ \textit{(or function with domain $X$ and range $Y$)} is a subset $f\subset X \times Y$ with the property: for each $x\in X$, there is one, and only one, $y\in Y$ satisfying $(x,y)\in f$.To denote $(x,y)\in f$, we write $y=f(x)$ and say that $y$ is the image of $x$ under $f$.
+\end{definition}
+
+
+
+\begin{definition}[Surjective function]\parencite{holmes_topology}
+Let $f : X \to Y$ be a function. We say that $f$ is surjective if for each $y \in Y$ , there exists $x \in X$ such that $f(x) = y$
+\end{definition}
+
+\begin{definition}[Injective function]\parencite{holmes_topology}
+Let $f : X \to Y$ be a function. We say that
+$f$ is injective if $f(x_1) = f(x_2)$ implies $x_1 = x_2 (x_i \in X)$
+\end{definition}
+
+
+\begin{definition}[Bijective function]\parencite{holmes_topology}
+Let \( f : X \to Y \) be a function. We say that \( f \) is bijective if it is both injective and surjective.
+\end{definition}
+
+%\begin{example}
+%$S_1^n  \{ X | X=X^n ,\lambda(x) \ge 0\}$\\
+%A matrix with positive eigenvalues.
+%\end{example}
+
+\subsection{Topology}
+\begin{definition}[Topology]\parencite{Dugundji1966} 
+Let $X$ be a set. A \textit{topology} (or topological structure) in $X$ is a family $\tau $ of subsets of $X$ that satisfies:
+\begin{enumerate}
+    \item [(1).] Each union of members of $\tau$ is also a member of $\tau$.
+    \item [(2).] Each \textit{finite} intersection of members of $\tau$ is also a member of $\tau$.
+    \item [(3).] $\emptyset$ and $X$ are members of $\tau$.
+\end{enumerate}
+\end{definition}
+
+\begin{example}[Discrete topology]
+ Let $X$ be any set and 
+ $\tau=\mathcal{P}(X)$. Then $\tau$ is a topology on $X$.
+ \begin{proof}  ~\\
+ \begin{enumerate}
+     \item Clearly, $X$, $\varnothing \in \tau$
+     \item Since every possible subset of $X$ is included in $\tau$, the union of any combination of these subsets will always result in another subset of $X$, which is already in $\tau$.
+     \item Since all subsets are open, the intersection of any finite number of them will still be a subset of $X$, hence in $\tau$.
+ \end{enumerate}
+ Thus, $\tau$ is a topology on $X$.
+ \end{proof}
+\end{example}
+
+\begin{example}[Indiscrete topology]
+Let $X$ be any set and $\tau=\{X,\varnothing\}$.  Then $\tau$ is a topology on $X$
+\begin{proof}  ~\\
+\begin{enumerate}
+    \item $X \in \tau$ and $\varnothing \in \tau$
+    \item $X \cup X=X \cup \varnothing= X \in \tau$\\
+     $\varnothing \cup \varnothing = \varnothing \in \tau$
+    \item $X \cap X= X \in \tau$\\
+    $X \cap \varnothing=\varnothing \cap \varnothing = \varnothing \in \tau$
+\end{enumerate}
+Thus, $\tau$ is a topology on $X$.
+\end{proof}
+\end{example}
+
+
+\begin{definition}[Open sets]\parencite{morris2020topology} 
+Let $(X,\tau)$ be a topological space. Then the members of $\tau$ are said to be \emph{open sets}.
+\end{definition}
+
+\begin{definition}[Closed sets]\parencite{morris2020topology}
+Let $(X,\tau)$ be a topological space. A subset $S$ of $X$ is said to be \emph{closed set} in $(X,\tau)$ if its complement in $X$, namely $X \setminus S$, is open in $(X,\tau)$.
+\end{definition}
+
+\begin{definition}[Neighborhood]\parencite{holmes_topology}
+Let $x \in X$. Any open set containing $x$ is called a neighborhood of $x$.
+\end{definition}
+
+\subsection{$G_{\delta}$}
+\begin{definition} \parencite{Dugundji1966}
+    A set $G$ is called $G_\delta$ if it is the intersection of at most countably many open sets.
+\end{definition}
+\subsection{Relativization}
+\begin{definition}[Subspace topology]\parencite{Dugundji1966}
+ Let $(X,\tau )$ be a topological space and $Y \subset X$. The induced topology $\tau_Y$ on
+ $Y$ is $\{Y\cap U : U \in \tau\}$. The pair $(Y,\tau_Y)$ is called a subspace of $(X,\tau )$.
+\end{definition}
+
+\subsection{Continuous maps and Homeomorphisms}
+\begin{definition}[Continuous maps]\parencite{BellezaCM2025}
+Let \( (X, \tau_X) \) and \( (Y, \tau_Y) \) be topological spaces. A map \( f : X \to Y \) is called \emph{continuous} if the inverse image of each open set in \( Y \) is open in \( X \).  
+That is, \( f^{-1}\) maps $\tau_Y \to \tau_X$.   
+\end{definition}
+
+\begin{example}
+ Let $(X,\tau)$ be any topological space and $f : (X,\tau) \to (X,\tau)$ is defined
+ by $f(x) = x$ for all $x\in X$. Then f is continuous.
+\end{example}
+\begin{proof}
+To show that \( f \) is continuous, we need to verify that the inverse image of every open set in  
+\( Y = (X, \tau) \) is open in \( X = (X, \tau) \).
+
+Let \( O \) be an arbitrary open set in \( Y \). By definition, $f^{-1}(O) = \{ x \in X \mid f(x) \in O \}$.
+Since \( f(x) = x \), this simplifies to $f^{-1}(O) = \{ x \in X \mid x \in O \} = O$. Since \( O \) is open in \( Y \), and \( Y \) has the same topology as \( X \), \( O \) is also open in \( X \). Thus, \( f^{-1}(O) = O \) is open in \( X \). Since the inverse image of every open set in \( Y \) is open in \( X \), the identity map \( f \) is continuous.
+\end{proof}
+
+\begin{remark}
+Not every identity function is continuous. To see this, let \( X = \{1, 2, 3, 4\} \), and define two topologies on \( X \), $\tau_1 = \{\emptyset, \{1\}, \{3\}, \{1,3\}, \{2,3\}, \{1,2,3\}, X\}$, \\ $\tau_2 = \{\emptyset, \{1\}, \{3\}, \{1,3\}, \{2\}, \{1,2,3\}, X\}$. Clearly, \( \tau_1 \) and \( \tau_2 \) are topologies on \( X \). Then \( i : (X, \tau_1) \to (X, \tau_2) \) defined by $i(x) = x$ for all $x \in X$ is not continuous, since there exists \( \{2\} \in \tau_2 \) such that $i^{-1}(\{2\}) = \{2\ \notin \tau_1$.
+\end{remark}
+
+\begin{definition}[Homeomorphism]\parencite{Dugundji1966}
+    A continuous bijective map $f: X \to Y$, such that $f^{-1}: Y \to X$ is also continuous, is called a homeomorphism (or a bicontinuous bijection) and denoted by $f: X \cong Y$. Two spaces $X, Y$ are homeomorphic, written $X \cong Y$, if there is a homeomorphism $f: X \cong Y$.
+\end{definition}
+
+\begin{example}
+The identity map $1 : X\to X$ is a homeomorphism.
+\end{example}
+
+\begin{example}
+Two discrete spaces $X$ and $Y$ (similarly, for indiscrete spaces), are homeomorphic if and only if there is a one-to-one function on $X$ onto $Y$ .
+\end{example}
+\begin{proof}
+In a discrete space, every subset is open. Let \( f : X \to Y \) be a bijection (one-to-one and onto). We will show that \( f \) is a homeomorphism. To show \( f \) is continuous, the preimage of any open set in \( Y \) must be open in \( X \). Since \( Y \) is discrete, every subset of \( Y \) is open. Thus, for any open \( V \subseteq Y \),  \( f^{-1}(V) \subseteq X \). Because \( X \) is discrete, \( f^{-1}(V) \) is open in \( X \). Hence, \( f \) is continuous. Similarly, \( f^{-1} : Y \to X \) is a bijection. For any open \( U \subseteq X \), $(f^{-1})^{-1}(U) = f(U) \subseteq Y$. Since \( X \) is discrete, \( U \) is open, and since \( Y \) is discrete, \( f(U) \) is open in \( Y \).  
+Thus, \( f^{-1} \) is continuous. Hence, \( f \) is a bijection, continuous, and its inverse \( f^{-1} \) is also continuous. Therefore, \( f \) is a homeomorphism, and \( X \cong Y \).
+\end{proof}
+
+\begin{definition}[Topological Invariant]
+    We call any property of spaces a topological invariant if whenever it is true for one space $X$, it is also true for every space homemorphic to $X$
+\end{definition}
+
+
+
+\section{Separation Axioms}
+Separation axioms are a family of topological invariants that give us new ways of distinguishing
+between various spaces. The idea is to look how open sets in a space can be used to create “buffer
+zones” separating pairs of points and closed sets. Separations axioms are denoted by $T_0$ $T_1$, $T_2$, etc., where
+$T$ comes from the German word Trennungsaxiom, which just means “separation axiom”  \parencite{schechter1996handbook}.
+\subsection{$T_0$ and $T_1$ space}
+\begin{definition}[$T_0$ space or Kolmogorov Space] \parencite{milewski1994topology} 
+    The space \((X, \mathcal{T})\) is said to be a \(T_0\)-space, if for any two distinct \(a, b \in X\), there is a neighborhood of at least one, which does not contain the other 
+\end{definition}
+
+\begin{example}
+    Let \( X = \{a, b, c\} \) with topology \( \tau = \{\varnothing, X, \{a\}, \{b\}, \{a, b\}\} \) defined on \( X \), 
+then \( (X, \tau) \) is a \( T_0 \) space
+\end{example}
+
+\begin{proof} ~\\
+\begin{enumerate}
+    \item for \( a \) and \( b \), there exists an open set \( \{a\} \) such that \( a \in \{a\} \) and \( b \notin \{a\} \)
+    \item for \( a \) and \( c \), there exists an open set \( \{a\} \) such that \( a \in \{a\} \) and \( c \notin \{a\} \)
+    \item for \( b \) and \( c \), there exists an open set \( \{b\} \) such that \( b \in \{b\} \) and \( c \notin \{b\} \)
+\end{enumerate}
+\end{proof}
+
+\begin{example}
+    The space $X=\{a,b\}$ with the indiscrete topology is not a $T_0$ space
+\end{example}
+
+   \begin{proof}
+        The two distinct points $a$ and $b$  in $X$ is contained only in the open set $X$. Thus, it is not a $T_0$ space.
+    \end{proof}
+
+\begin{definition}[$T_1$-space or Fréchet Space ]\parencite{milewski1994topology} A topological space $(X,\mathcal{T})$ is called a \(T_1\)-space, if every single element set is closed, that is, $\forall a\in X, \{a\}=\overline{\{a\}}$ .
+\end{definition}
+
+\begin{theorem} \label{T1th}
+    A topological space $(X,\tau)$ is a $T_1$ space if and only if for any pair of distinct points $a,b \in X$, the open sets $G,H \in \tau$ exist, such that $a\in G$, $b \notin G$ and $b\in H$, $a\notin H$
+\end{theorem}
+\begin{proof}
+    Suppose $X$ is a $T_1$-space. Then, for any $x\in X$, $\{x\}$ is a closed set. Let $a,b\in X$ and $a\neq b$. The sets $X-\{a\}$ and $X-\{b\}$ are open, and 
+
+\[
+a \in X - \{b\} \quad \text{and} \quad b \notin X - \{b\}
+\]
+\[
+b \in X - \{a\} \quad \text{and} \quad a \notin X - \{a\}.
+\]
+
+Conversely, suppose \( x \in X \). We shall show that \( \{x\} \) is closed, i.e., \( X - \{x\} \) is open.
+Let \( y \in X - \{x\} \), then \( y \ne x \) and an open set \( H_y \) exists, such that
+
+\[
+y \in H_y \quad \text{and} \quad x \notin H_y.
+\]
+
+Thus,
+
+\[
+y \in H_y \subseteq X - \{x\} \quad \text{and} \quad X - \{x\} = \bigcup_{y \ne x} H_y.
+\]
+
+Since all \( H_y \) are open sets, \( X - \{x\} \) is open and \( \{x\} \) is closed, \( \{x\} = \overline{\{x\}} \).
+
+
+\end{proof}
+
+\begin{example} Consider the set $X=\{a,b,c\}$ with the cofinite topology, $$\tau=\{X,\emptyset,{a},{b},{c},\{a,b\},\{a,c\},\{b,c\}\}.$$ Verify that $(X,\tau)$ is a $T_1$ space.
+\end{example}
+\begin{proof} The complement of $\{a\}$ is $\{b,c\}$, which is open (its complement $\{a\}$ is finite). Similarly, $\{b\}^c=\{a,c\}$ and $\{c\}^c=\{a,b\}$ are open. By Definition 2.2, since every singleton is closed, $X$ is $T_1$.
+For $a$ and $b$, there exist open sets $\{a\}$ and $\{b\}$ such that $a \in \{a\}$, $b\notin \{a\}$ and $b \in \{b\}$, $a\notin \{b\}$. This satisfies the condition in Theorem 2.1, confirming $X$ is $T_1$.
+
+Thus, $(X,\tau)$ is a $T_1$ space.
+\end{proof}
+
+\begin{example}
+The Sierpinski Space is $T_0$ but not $T_1$
+\end{example}
+\begin{proof}
+      Recall that a \textit{{Sierpiński space}} is the topological space \( X = \{x, y\} \) with the topology given by \( \{X, \{x\}, \emptyset\} \). It is $T_0$ because for $x$ and $y$ the open set $\{x\}$ contains $x$ but not $y$. It is not $T_1$ because every open set $U$ containing $y$ (which is only $X$) contains $x$.
+
+\end{proof}
+
+\begin{theorem}\parencite{milewski1994topology}
+    A $T_1$ space is also a $T_0$ space. \label{t1t0}
+\end{theorem}
+\begin{proof}
+    Let $X$ be a $T_1$ space then clearly from its definition it follows that it is also a $T_0$ space. Since with any pair $a,b \in X$ there exist an open set $G$ with $a\in G$ and $b\notin G$.
+\end{proof}
+
+\begin{theorem}\parencite{milewski1994topology} If $(X,\tau)$ and $(Y,\tau')$ are homeomorphic  and $(X,\tau)$ is a $T_1$-space (or $T_0$) then so is  $(Y,\tau')$ 
+\end{theorem}
+\begin{proof}
+    Let $f$ denote a homeomorphism
+\[ f: X \to Y \]
+and $X$ be a $T_1$-space. A space $(X, \tau)$ is $T_1$, if and only if every one-point subset of $X$ is closed.
+Let $y$ represent any point of $Y$, $y \in Y$. The set $f^{-1}(y)$ is a one-point subset of $X$ and since $X$ is $T_1$, the set $\{f^{-1}(y)\}$ is closed.
+
+Since $f: X \to Y$ is a homeomorphism, it maps closed sets into closed sets.
+Therefore, for any $y \in Y$
+\[ \{y\} = \overline{\{y\}}. \]
+Thus, $(Y, \tau)$ is a $T_1$-space. Similarl proof can be done to when if $X$ is $T_0$, then so is $Y$.
+\end{proof}
+
+
+\subsection{Hausdorff spaces}
+\begin{definition}[$T_2$-space or Hausdorff space] \parencite{Dugundji1966} A space $X$ is Hausdorff (or separated) if each two distinct points have nonintersecting nbds, that is, whenever, $p \neq q$ there are nbds $U(p), V(q)$ such that $U \cap V = \varnothing$. 
+\end{definition}
+
+\begin{example} The real line $R$ with the standard topology is a Hausdorff space.
+\end{example}
+ \begin{proof}
+ For any two distinct points \( x, y \in \mathbb{R} \), let \( d = |x - y| > 0 \).  
+Then the open intervals  
+\[ 
+U = \left( x - \frac{d}{2}, \, x + \frac{d}{2} \right) \quad \text{and} \quad V = \left( y - \frac{d}{2}, \, y + \frac{d}{2} \right) 
+\]  
+are disjoint neighborhoods of \( x \) and \( y \), respectively.  
+Thus, \( \mathbb{R} \) is Hausdorff.
+    \end{proof}
+
+\begin{theorem} \parencite{milewski1994topology}
+    Each Hausdorff space is a $T_1$ space. \label{hto1}
+\end{theorem}
+\begin{proof}
+    Suppose $X$ is a Hausdorff space. Then from the definition, for two distinct points $x$ and $y$, there exist two open sets $U$ and $V$ such that $x\in U$, $y\in V$ and  $U \cap V = \varnothing$. Thus, $x \notin V$ and $y\notin U$, by Theorem \ref{T1th}, $X$ is also a $T_1$ space.
+    
+\end{proof}
+
+\begin{theorem}\parencite{milewski1994topology}
+    Each Hausdorff space is a $T_0$ space \label{hto}
+\end{theorem}
+\begin{proof}
+    Suppose $X$ is a Hausdorff space. Then from Theorem \ref{hto1} and Theorem \ref{t1t0}, it is also a $T_0$ space.
+\end{proof}
+
+
+\begin{theorem} \parencite{Dugundji1966} The following three properties are equivalent
+
+\begin{enumerate}
+    \item $X$ is Hausdorff.
+    \item Let $p \in X$. For each $q \ne p$, there is a nbd $U(p)$ such that $q \notin \overline{U(p)}$.
+    \item For each $p \in X$, $\bigcap \{ \overline{U} \mid U \text{ is a nbd of } p \} = \{p\}$.
+\end{enumerate}
+
+\end{theorem}
+
+\begin{theorem}
+    Every subspace of a Hausdorff space is Hausdorff \label{subhaus}
+\end{theorem}
+
+\begin{theorem}
+  If $(X,\tau)$ and $(Y,\tau')$ are homeomorphic  and $(X,\tau)$ is a $T_2$-space then so is  $(Y,\tau')$ 
+\end{theorem}
+\begin{proof}
+    Let $f$ denote a homeomorphism, $f: X \to Y$ and $X$ be a $T_2$-space. Now $f$ is a continuous bijective map hence two distinct points $x_1,x_2$ of $X$ exist such that $f^{-1}(y_1)=x_1, f^{-1}(y_2)=x_2$. $(X, \tau)$ is a Hausdorff space, therefore, there are two open sets $U_1, U_2 \subset X$, such that
+\[ x_1 \in U_1, \quad x_2 \in U_2, \quad U_1 \cap U_2 = \emptyset. \]
+Since $f$ is bijective,
+\[ f(U_1) \subset Y, \quad f(U_2) \subset Y \]
+\[ f(U_1) \cap f(U_2) = \emptyset \]
+Now, since $f^{-1}$ is continuous, the function $(f^{-1})^{-1} = f$ maps open sets into open sets. Hence, $f(U_1), f(U_2) \in T'$ are open sets.
+\[ y_1 \in f(U_1), \quad y_2 \in f(U_2) \]
+We conclude that $(Y, \tau')$ is a $T_2$-space.
+If two spaces are homeomorphic and one of them is a $T_2$-space, then so is the other.
+\end{proof}
+ 
+\subsection{Regular Spaces}
+
+\begin{definition} [Regular space] \label{regular}\parencite{milewski1994topology}
+    A topological space $(X, \mathcal{T})$, is said to be regular if, given any closed subset $F \subset X$ and any point $x \in X$, such that $x \notin F$, there are open sets $U$ and $V$, such that
+\[
+F \subset U, \quad x \in V, \quad \text{and} \quad U \cap V = \emptyset 
+\]
+\end{definition}
+
+\begin{definition} [$T_3$-space or Regular Hausdorff space]
+A space is a $T_3$-space or Regular Hausdorff space if it is both a Hausdorff space and a regular space.
+\end{definition}
+
+Note that some authors switch the definition of "Regular" and "$T_3$". Some also defines them equivalently, such as \textcite{Dugundji1966}. Some  also defined $T_3$ by the theorems below. For this lecture notes, we use the definitions that was stated above.
+
+
+\begin{remark}
+A regular space need not be a $T_1$-space.    
+\end{remark}
+
+\begin{example}
+Consider the topology $\tau = \{X, \emptyset, \{a\}, \{b, c\}\}$ on the set $X = \{a, b, c\}$. Observe that the closed subsets of $X$ are also $X$, $\emptyset$, $\{a\}$ and $\{b, c\}$ and that $(X, \tau)$ does satisfy Definition \ref{regular}. On the other hand, $(X, \tau)$ is not a $T_1$-space since there are single element sets, e.g. $\{b\}$, which are not closed.
+\end{example}
+
+
+
+\begin{theorem}
+    A space is $T_3$ if and only if it is both regular and $T_0$
+\end{theorem}
+\begin{proof}
+    Suppose a space is $T_3$ then by the definition, it is both regular and $T_2$. By Theorem \ref{hto}, it is also $T_0$. For the converse, suppose a space is both a regular and $T_0$. Now let $a,b \in X$ represents distinct points. Since the space is $T_0$, there is a neighborhood of at least one, which does not contain the other. Thus, let $a \notin U(b)$ then $a \notin \overline {U(b)}$. By regularity, there exist open sets $G$ and $V$ s.t $\overline {U(b)} \subset G$ and $a\in V$ where $G \cap V = \emptyset$. This implies that the space is also Hausdorff and hence also a $T_3$ space.
+\end{proof}
+
+\begin{theorem}
+    A space is $T_3$ if and only if it is both regular and $T_1$
+\end{theorem}
+
+\begin{theorem} \parencite{Dugundji1966}
+    The following three properties are equivalent
+    \begin{enumerate}
+        \item X is a $T_3$ space
+         \item For each $x \in X$ and nbd $U$ of $x$, there exists a nbd $V$ of $x$ with $X \in V \subset \bar{V} \subset U$.
+         \item For each $x \in X$ and closed $A$ not containing $x$, there is a nbd $V$ of $x$ with $\bar{V} \cap A = \emptyset$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    Every subspace of a regular space is regular \label{subreg}
+\end{theorem}
+\begin{proof}
+ Let \( Y \) be a regular space and \( X \subset Y \) a subspace. Let \( B \subset X \) be closed in \( X \), and let \( x_0 \in X \setminus B \). Since \( B \) is closed in \( X \), there exists a closed set \( A \subset Y \) such that  
+\( B = X \cap A \). Note that \( x_0 \notin A \) because \( x_0 \in X \setminus B \). By the regularity of \( Y \), there exist disjoint open sets \( U \) and \( V \) in \( Y \)  
+such that \( x_0 \in U \) and \( A \subset V \). The sets \( U \cap X \) and \( V \cap X \) are open in \( X \) (by the definition of the subspace topology),  
+\( x_0 \in U \cap X \), and  $B = X \cap A \subset V \cap X$. Since \( U \) and \( V \) are disjoint in \( Y \), their intersections with \( X \) are also disjoint in \( X \).
+
+Thus, \( X \) is regular. 
+\end{proof}
+
+\begin{theorem}
+    Any subspace of a $T_3$-space is a $T_3$-space
+\end{theorem}
+\begin{proof}
+    A $T_3$-space is a regular Hausdorff space. By Theorem \ref{subreg} and theorem \ref{subhaus}, its subspace is also a regular Hausdorff space or a $T_3$-space.
+\end{proof}
+
+\subsection{Normal Spaces}
+\begin{definition}[Normal Space] \parencite{milewski1994topology}
+    A topological space $(X, T)$ is said to be normal if, given any two disjoint closed sets $F_1$ and $F_2$ in $X$, there are disjoint open sets $U$ and $V$, such that
+\[ F_1 \subset U \quad \text{and} \quad F_2 \subset V \]
+\end{definition}
+
+\begin{definition}[$T_4$-space of Normal Hausdorff space]
+A space is a $T_4$-space or Normal Hausdorff space if it is both a Hausdorff space and a normal space
+\end{definition}
+
+Similarly with regular spaces, some authors switch the definition of "Normal" and "$T_4$". Some also defines them equivalently, such as \textcite{Dugundji1966}. For this lecture notes, we use the definitions that are stated above.
+
+\begin{example}
+    Discrete spaces are $T_4$ spaces
+\end{example}
+\begin{proof}
+For any two distinct points $x,y \in X$, the singleton sets $\{x\}$ and $\{y\}$ are open and disjoint. Thus, $X$ is Hausdorff. Now, Let $F_1$ and $F_2$ be disjoint closed sets in $X$. In the discrete topology, every set is open, so $F_1$ and $F_2$ themselves are open. Thus, we can take $U=F_1$ and $V=F_2$ as disjoint open sets containing $F_1$ and $F_2$ respectively. This shows that $X$ is normal. Since $X$ is both Hausdorff and normal, it is a $T_4$-space.    
+\end{proof}
+
+\begin{example}
+    Any space $(X,\tau)$, containing more than one point with the indiscrete topology is Normal.
+\end{example}
+
+\begin{proof}
+    The indiscrete topology consists of two sets $X$ and $\phi$.
+\[ T = \{X, \phi\}. \]
+Hence, the only closed sets are $X$ and $\phi$ because $X - \phi = X$ and $X - X = \phi$.
+Thus, there are no non-empty disjoint closed subsets of $X$. The space is normal.
+\end{proof}
+
+\begin{theorem}
+    Every $T_4$-spaces are $T_3$-spaces
+\end{theorem}
+\begin{proof}
+Let $(X,T)$ denote a $T_4$-space. Hence, $(X,T)$ is normal and $T_1$. Suppose $F$ is a closed subset of $X$ and $a\in F$. Since $(X,T)$ is $T_1$, the singleton set $\{a\}$ is closed. Sets $F$ and $\{a\}$ are closed and disjoint. Since $(X,T)$ is normal, the open sets $U_1$ and $U_2$ exist, such that
+$$\{a\} \subset U_1, \quad F\subset U_2, \quad U_1\cap U_2$$.
+Therefore $(X,T)$ is regular and $T_3$
+\end{proof}
+
+\begin{theorem}
+    The following four properties are equivalent
+    \begin{enumerate}
+        \item $X$ is $T_4$.
+        \item  For each closed $A$ and open $U \supset A$ there is an open $V$ with $A \subset V \subset \bar{V} \subset U$.
+        \item  For each pair of disjoint closed sets $A$, $B$, there is an open $U$ with $A \subset U$ and $\bar{U} \cap B = \emptyset$.
+        \item Each pair of disjoint closed sets have nbds whose closures do not intersect.
+    \end{enumerate}
+\end{theorem}
+
+%\begin{theorem}
+ %    Normality is invariant under continuous closed surjections. 
+%\end{theorem}
+
+\begin{theorem}
+    A closed subspace of a $T_4$ space is $T_4$.
+\end{theorem}
+\begin{proof} Let $X$ be a $T_4$ space and $Y$ be a closed subspace of $X$.
+    Since every subspace of a $T_1$-space is $T_1$ and $X$ is $T_1$ also, $Y$ is a $T_1$-space. Since $Y$ is closed, a subset $F$ of $Y$ is closed in $Y$, if and only if $F$ is closed in $X$. Hence, if $F_1$ and $F_2$ are disjoint closed subsets of $Y$, they are also disjoint closed subsets of $X$.
+
+Thus, the open sets $U_1$ and $U_2$ exist, such that
+\[ F_1 \subset U_1, \quad F_2 \subset U_2 \text{ and } U_1 \cap U_2 = \emptyset. \]
+
+Then
+\[ F_1 \subset U_1 \cap Y, \quad F_2 \subset U_2 \cap Y, \]
+and $U_1 \cap Y$ and $U_2 \cap Y$ are disjoint subsets of $Y$, open in $Y$. Since $(Y, T_Y)$ is $T_1$ and normal, it is $T_4$.
+\end{proof}
+
+\begin{remark}
+    A subspace of a normal space need not be normal.
+\end{remark}
+
+\begin{definition}[ Completely normal space]
+    A space $X$ is completely normal if every pair of sets $A, B$ satisfying $\bar{A} \cap B = A \cap \bar{B}=\emptyset$ can be separated. That is there exist disjoint open sets $U$ and $V$ such that $A \subseteq U$ and $B \subseteq V$.
+\end{definition}
+
+\begin{definition}[$T_5$-spaces or completely normal Hausdorff spaces] A space that is both Hausdorff and completely normal is a $T_5$ space.
+\end{definition}
+
+
+\subsection{Urysohn's Characterization of Normality}
+
+
+\begin{theorem} [Urysohn Lemma]\parencite{Dugundji1966}
+The following two properties are equivalent:
+\begin{enumerate}
+    \item $X$ is $T_4$.
+    \item For each pair of disjoint closed sets, $A$, $B$ in $X$, there exists a continuous $f:X \to \mathbb{R}$, called a Urysohn function for $A$, $B$, such that:
+    \begin{enumerate}
+        \item $0 \leq f(x)\leq 1 \quad$ for all $x \in X$
+        \item $f(a)=0$ \quad for all $a \in A$.
+        \item $f(b)=0$ \quad for all $b \in B$.  
+    \end{enumerate}
+\end{enumerate}
+\end{theorem}
+
+
+
+
+\begin{corollary}\parencite{Dugundji1966} A necessary and sufficient condition for the existence of a Urysohn function satisfying $A=f^{-1}(0)$ is that $A$ be a $G_\delta$.
+\end{corollary}
+
+\begin{corollary}\parencite{Dugundji1966} A necessary and suffiecient condition that there be a Urysohn function $f$ with $A=f^{-1}(0), B=f^{-1}(1)$ is that both $A$ and $B$ be $G_\delta$.
+\end{corollary}
+
+
+\begin{definition}[$T_6$-spaces or perfectly normal Hausdorff spaces]
+    A $T_4$ space in which each closed set is a $G_\delta$ is a $T_6$ space.
+\end{definition}
+
+\begin{theorem}
+    Every $T_6$ space is a $T_5$ space.
+\end{theorem}
+
+\subsection{Tietze's Characterization of Normality}
+
+\begin{theorem}[H. Tietze Theorem]\parencite{Dugundji1966} The following two properties are equivalent:
+\begin{enumerate}
+    \item $X$ is a $T_4$-space
+    \item For every closed $A \subset X$, each continuous $f:A \to \mathbb{R}$ has a continuous $f:X\to \mathbb{R}$. Furthermore, if $|f(a)|<c$ on $A$, then $F$ can be chosen so that $|F(x)|<c$ on $X$.
+\end{enumerate}
+\end{theorem}
+
+%\subsection{Covering Chracteization of Normality}
+
+%\begin{theorem} The following two properties are equivalent:
+%\begin{enumerate}
+ %   \item Y is normal.
+  %  \item If $\{U_\alpha \mid \alpha \in \mathcal{A}\}$ is any point-finite covering $Y$ by open sets, there exists a covering $\{V_\alpha \mid \alpha \in \mathcal{A}\}$ of $Y$ by open sets such that $\overline V_\alpha \subset U_\alpha$ for each $\alpha \in \mathcal{A}$, and $V_\alpha \neq \varnothing$ whenever $U_\alpha \neq \varnothing$.
+%\end{enumerate}
+% \end{theorem}
+
+\subsection{Completely Regular Spaces}
+
+\begin{definition}[Completely regular space]\parencite{Dugundji1966} A space is completely regular  if for each point $p\in X$ and closed $A$ not containing $p$, there is a continuous $\varphi:X \to [0,1]$ such that $\varphi(p)=1$ and $\varphi(a)=0$ for each $a\in A$
+\end{definition}
+
+\begin{theorem}
+    Every completely regular space is regular \label{comples}
+\end{theorem}
+\begin{proof}
+ Let $F$ represent a closed subset of $X$ and $a\in X$ a point which does not belong to $F$. By hypothesis, a continuous function
+ $$ f: X \to [0,1]$$
+ exists, such that $f(F) = \{1\}$ and $f(a) =0$. An interval $[0,1]$ is a Hausdorff space. Hence, two open disjoint subsets $U_1$ and $U_2$ of $[0,1]$ exists, such that
+ $$ 0\in U_1 \quad \text{and} \quad  1 \in U_2.$$
+ Since $f$ is continuous, $f^-1(U_1)$ and $f^-1(U_2)$ are open. These subsets are disjoint such that
+ $$ a\in f^-1(U_1), \quad F\subset f^-1(U_2).$$
+ Hence, $(X,T)$ is regular.
+\end{proof}
+
+\begin{definition}[Tychonoff space]
+A completely regular Hausdorff space is a  Tychonoff space.
+\end{definition}
+
+\begin{theorem}
+    \parencite{Dugundji1966} Every subspace of a Tychonoff space is Tychonoff. 
+\end{theorem}
+%\begin{proof}
+ %   Suppose a space $X$ is a Tychonoff space. Then it is a completely regular Hausdorff Space.
+%\end{proof}
+
+
+%useful link https://www.emathzone.com/tutorials/general-topology/t0-space.html 
+
+
+\newpage
+\addcontentsline{toc}{chapter}{References}		
+	\begingroup
+            \printbibliography
+        \endgroup
+\end{document}
