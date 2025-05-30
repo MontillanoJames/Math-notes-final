@@ -14,4 +14,5 @@
 \contentsline {subsection}{\numberline {2.5}Urysohn's Characterization of Normality}{12}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Tietze's Characterization of Normality}{12}{subsection.2.6}%
 \contentsline {subsection}{\numberline {2.7}Completely Regular Spaces}{12}{subsection.2.7}%
+\contentsline {chapter}{References}{14}{dummy.2.23}%
 \contentsfinish 
