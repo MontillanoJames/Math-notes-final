@@ -1,0 +1,331 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  My documentation report
+%  Objetive: Explain what I did and how, so someone can continue with the investigation
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article} % Default font size and left-justified equations
+
+\usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,letterpaper]{geometry} % Page margins
+
+\usepackage{xcolor} % Required for specifying colors by name
+\definecolor{ocre}{RGB}{52,177,201} % Define the orange color used for highlighting throughout the book
+
+% Font Settings
+\usepackage{avant} % Use the Avantgarde font for headings
+%\usepackage{times} % Use the Times font for headings
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Computer Modern fonts
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+% Bibliography
+\usepackage[style=apa,sorting=nyt,sortcites=true,autopunct=true,babel=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
+
+\addbibresource{bibliography.bib} % BibTeX bibliography file
+\defbibheading{bibempty}{}
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+%----------------------------------------------------------------------------------------
+%	Definitions of new commands
+%----------------------------------------------------------------------------------------
+
+\def\R{\mathbb{R}}
+\newcommand{\cvx}{convex}
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\AddToShipoutPicture*{\put(0,0){\includegraphics[scale=1.05]{Pictures/covveeeer12.PNG}}} % Image background
+\centering{
+\vspace*{2.5cm}
+\par\normalfont\fontsize{35}{35}\sffamily\selectfont
+\textbf{Lecture Notes on Borel Sets}\\
+{\LARGE Math 6201 - Topology } \\ % Book title
+\vspace{-0.3cm}{\Large AY 2024-2025 Term 1} \\
+{\Large  James Israel B. Montillano} \vspace{0.2 cm}  % Author name
+ } \\~\\
+{\normalsize Department of Computer, Information Sciences, and Mathematics} \\
+{\small (May 2025)} \\
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+%\newpage
+%~\vfill
+%\thispagestyle{empty}
+
+%%\noindent Copyright \copyright\ 2014 Andrea Hidalgo\\ % Copyright notice
+
+%\noindent \textsc{Summer Research Internship, University of Western Ontario}\\
+
+%\noindent \textsc{github.com/LaurethTeX/Clustering}\\ % URL
+
+%\noindent This research was done under the supervision of Dr. Pauline Barmby with the financial support of the MITACS Globalink Research Internship Award within a total of 12 weeks, from June 16th to September 5th of 2014.\\ % License information
+
+%\noindent \textit{First release, August 2014} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\chapterimage{head1.png} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+\newpage
+\tableofcontents % Print the table of contents itself
+
+%\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\newpage
+%I edit nya ni romelyn kay kang cherlyn ni.
+\section{Preliminaries}
+This section reviews some fundamental concepts needed to understand the basic parts on separation axioms on topology. 
+
+\subsection{Sets}
+\begin{definition}[Subset]\parencite{lipschutz1965} A set $A$ is a subset of a set $B$ or, equivalently, $B$ is a superset of $A$, written $A\subset B$ or $B\supset A$ iff each element in $A$ also belongs to $B$; that is, if $x\in A$ implies $x\in B$.
+\end{definition}
+
+\begin{definition}[Union]\parencite{lipschutz1965}
+The union of two sets $A$ and $B$, denoted by $A\cup B$, is the set of all elements which belong to $A$ or $B$, i.e., $A\cup B = \{x:x\in A \quad \text{or} \quad x\in B\}$     
+\end{definition}
+
+\begin{definition}[Intersection]\parencite{lipschutz1965}
+The intersection of two sets $A$ and $B$, denoted by $A\cap B$, is the set of elements which belong to both $A$ and $B$, i.e., $A\cap B=\{x:x\in A \quad \text{and} \quad x\in B)$   
+\end{definition}
+
+
+\begin{definition}[Power Sets]\parencite{Dugundji1966}
+Let $A$ be any set. Its power set $\mathcal{P}(A)$ is the set of all subsets of $A$.
+\end{definition}
+
+\begin{definition}[Countable]\parencite{Dugundji1966}
+ A set $A$ is countable if it is finite or equivalent to the set $\mathbb{N}$ of counting
+ numbers. If $A\equiv N$, then $A$ is called countably infinite or denumerable.
+\end{definition}
+
+
+\subsection{Functions, or Maps}
+
+\begin{definition}[Map] \parencite{Dugundji1966}
+Let $X$ and $Y$ be two sets. A \textit{map} $f: X \rightarrow Y$ \textit{(or function with domain $X$ and range $Y$)} is a subset $f\subset X \times Y$ with the property: for each $x\in X$, there is one, and only one, $y\in Y$ satisfying $(x,y)\in f$.To denote $(x,y)\in f$, we write $y=f(x)$ and say that $y$ is the image of $x$ under $f$.
+\end{definition}
+
+
+
+\begin{definition}[Surjective function]\parencite{holmes_topology}
+Let $f : X \to Y$ be a function. We say that $f$ is surjective if for each $y \in Y$ , there exists $x \in X$ such that $f(x) = y$
+\end{definition}
+
+\begin{definition}[Injective function]\parencite{holmes_topology}
+Let $f : X \to Y$ be a function. We say that
+$f$ is injective if $f(x_1) = f(x_2)$ implies $x_1 = x_2 (x_i \in X)$
+\end{definition}
+
+
+\begin{definition}[Bijective function]\parencite{holmes_topology}
+Let \( f : X \to Y \) be a function. We say that \( f \) is bijective if it is both injective and surjective.
+\end{definition}
+
+%\begin{example}
+%$S_1^n  \{ X | X=X^n ,\lambda(x) \ge 0\}$\\
+%A matrix with positive eigenvalues.
+%\end{example}
+
+\subsection{Topology}
+\begin{definition}[Topology]\parencite{Dugundji1966} 
+Let $X$ be a set. A \textit{topology} (or topological structure) in $X$ is a family $\tau $ of subsets of $X$ that satisfies:
+\begin{enumerate}
+    \item [(1).] Each union of members of $\tau$ is also a member of $\tau$.
+    \item [(2).] Each \textit{finite} intersection of members of $\tau$ is also a member of $\tau$.
+    \item [(3).] $\emptyset$ and $X$ are members of $\tau$.
+\end{enumerate}
+\end{definition}
+
+\begin{example}[Discrete topology]
+ Let $X$ be any set and 
+ $\tau=\mathcal{P}(X)$. Then $\tau$ is a topology on $X$.
+ \begin{proof}  ~\\
+ \begin{enumerate}
+     \item Clearly, $X$, $\varnothing \in \tau$
+     \item Since every possible subset of $X$ is included in $\tau$, the union of any combination of these subsets will always result in another subset of $X$, which is already in $\tau$.
+     \item Since all subsets are open, the intersection of any finite number of them will still be a subset of $X$, hence in $\tau$.
+ \end{enumerate}
+ Thus, $\tau$ is a topology on $X$.
+ \end{proof}
+\end{example}
+
+\begin{example}[Indiscrete topology]
+Let $X$ be any set and $\tau=\{X,\varnothing\}$.  Then $\tau$ is a topology on $X$
+\begin{proof}  ~\\
+\begin{enumerate}
+    \item $X \in \tau$ and $\varnothing \in \tau$
+    \item $X \cup X=X \cup \varnothing= X \in \tau$\\
+     $\varnothing \cup \varnothing = \varnothing \in \tau$
+    \item $X \cap X= X \in \tau$\\
+    $X \cap \varnothing=\varnothing \cap \varnothing = \varnothing \in \tau$
+\end{enumerate}
+Thus, $\tau$ is a topology on $X$.
+\end{proof}
+\end{example}
+
+
+\begin{definition}[Open sets]\parencite{morris2020topology} 
+Let $(X,\tau)$ be a topological space. Then the members of $\tau$ are said to be \emph{open sets}.
+\end{definition}
+
+\begin{definition}[Closed sets]\parencite{morris2020topology}
+Let $(X,\tau)$ be a topological space. A subset $S$ of $X$ is said to be \emph{closed set} in $(X,\tau)$ if its complement in $X$, namely $X \setminus S$, is open in $(X,\tau)$.
+\end{definition}
+
+\begin{definition}[Neighborhood]\parencite{holmes_topology}
+Let $x \in X$. Any open set containing $x$ is called a neighborhood of $x$.
+\end{definition}
+
+\subsection{$G_{\delta}$}
+\begin{definition} \parencite{Dugundji1966}
+    A set $G$ is called $G_\delta$ if it is the intersection of at most countably many open sets.
+\end{definition}
+\subsection{Relativization}
+\begin{definition}[Subspace topology]\parencite{Dugundji1966}
+ Let $(X,\tau )$ be a topological space and $Y \subset X$. The induced topology $\tau_Y$ on
+ $Y$ is $\{Y\cap U : U \in \tau\}$. The pair $(Y,\tau_Y)$ is called a subspace of $(X,\tau )$.
+\end{definition}
+
+\subsection{Continuous maps and Homeomorphisms}
+\begin{definition}[Continuous maps]\parencite{BellezaCM2025}
+Let \( (X, \tau_X) \) and \( (Y, \tau_Y) \) be topological spaces. A map \( f : X \to Y \) is called \emph{continuous} if the inverse image of each open set in \( Y \) is open in \( X \).  
+That is, \( f^{-1}\) maps $\tau_Y \to \tau_X$.   
+\end{definition}
+
+\begin{example}
+ Let $(X,\tau)$ be any topological space and $f : (X,\tau) \to (X,\tau)$ is defined
+ by $f(x) = x$ for all $x\in X$. Then f is continuous.
+\end{example}
+\begin{proof}
+To show that \( f \) is continuous, we need to verify that the inverse image of every open set in  
+\( Y = (X, \tau) \) is open in \( X = (X, \tau) \).
+
+Let \( O \) be an arbitrary open set in \( Y \). By definition, $f^{-1}(O) = \{ x \in X \mid f(x) \in O \}$.
+Since \( f(x) = x \), this simplifies to $f^{-1}(O) = \{ x \in X \mid x \in O \} = O$. Since \( O \) is open in \( Y \), and \( Y \) has the same topology as \( X \), \( O \) is also open in \( X \). Thus, \( f^{-1}(O) = O \) is open in \( X \). Since the inverse image of every open set in \( Y \) is open in \( X \), the identity map \( f \) is continuous.
+\end{proof}
+
+\begin{remark}
+Not every identity function is continuous. To see this, let \( X = \{1, 2, 3, 4\} \), and define two topologies on \( X \), $\tau_1 = \{\emptyset, \{1\}, \{3\}, \{1,3\}, \{2,3\}, \{1,2,3\}, X\}$, \\ $\tau_2 = \{\emptyset, \{1\}, \{3\}, \{1,3\}, \{2\}, \{1,2,3\}, X\}$. Clearly, \( \tau_1 \) and \( \tau_2 \) are topologies on \( X \). Then \( i : (X, \tau_1) \to (X, \tau_2) \) defined by $i(x) = x$ for all $x \in X$ is not continuous, since there exists \( \{2\} \in \tau_2 \) such that $i^{-1}(\{2\}) = \{2\ \notin \tau_1$.
+\end{remark}
+
+\begin{definition}[Homeomorphism]\parencite{Dugundji1966}
+    A continuous bijective map $f: X \to Y$, such that $f^{-1}: Y \to X$ is also continuous, is called a homeomorphism (or a bicontinuous bijection) and denoted by $f: X \cong Y$. Two spaces $X, Y$ are homeomorphic, written $X \cong Y$, if there is a homeomorphism $f: X \cong Y$.
+\end{definition}
+
+\begin{example}
+The identity map $1 : X\to X$ is a homeomorphism.
+\end{example}
+
+\begin{example}
+Two discrete spaces $X$ and $Y$ (similarly, for indiscrete spaces), are homeomorphic if and only if there is a one-to-one function on $X$ onto $Y$ .
+\end{example}
+\begin{proof}
+In a discrete space, every subset is open. Let \( f : X \to Y \) be a bijection (one-to-one and onto). We will show that \( f \) is a homeomorphism. To show \( f \) is continuous, the preimage of any open set in \( Y \) must be open in \( X \). Since \( Y \) is discrete, every subset of \( Y \) is open. Thus, for any open \( V \subseteq Y \),  \( f^{-1}(V) \subseteq X \). Because \( X \) is discrete, \( f^{-1}(V) \) is open in \( X \). Hence, \( f \) is continuous. Similarly, \( f^{-1} : Y \to X \) is a bijection. For any open \( U \subseteq X \), $(f^{-1})^{-1}(U) = f(U) \subseteq Y$. Since \( X \) is discrete, \( U \) is open, and since \( Y \) is discrete, \( f(U) \) is open in \( Y \).  
+Thus, \( f^{-1} \) is continuous. Hence, \( f \) is a bijection, continuous, and its inverse \( f^{-1} \) is also continuous. Therefore, \( f \) is a homeomorphism, and \( X \cong Y \).
+\end{proof}
+
+\begin{definition}[Topological Invariant]
+    We call any property of spaces a topological invariant if whenever it is true for one space $X$, it is also true for every space homemorphic to $X$
+\end{definition}
+
+
+\subsection{$\sigma$-rings}
+\begin{definition}
+	A nonempty family $\Sigma \subseteq \mathcal{P}(X)$ is called a $\sigma$-ring if
+	\begin{enumerate}
+		\item $A \in \Sigma \Rightarrow  A^C \in \Sigma$,
+		\item $A_i \in \Sigma$ for $i = 1, 2, \dots \Rightarrow \bigcup_{i=1}^\infty A_i \in \Sigma$.
+	\end{enumerate}
+\end{definition}
+
+\subsection{Projection Map}
+\textit{This definition is found on page 11 of dugundji}
+\begin{definition}
+	[Projection map]\parencite{Dugundji1966} For any sets $X$, $Y$, the map $p_1 \colon X \times Y \to X$ determined by $(x,y) \to x$ is called ``projection onto the first coordinate''; $p_2 \colon X \times Y \to Y$, where $p_2(x,y) = y$ is ``projection onto the second coordinate.''
+\end{definition}
+
+\section{Cartesian product topology}
+\textit{We form a product topology based on subbasis???}
+
+\begin{definition}
+	[Cylinder set] 
+\end{definition}
+
+\begin{definition}\parencite{Dugundji1966}
+	Let $\{Y_\alpha \mid \alpha \in \mathcal{A}\}$ be any family of topological spaces. For each $\alpha \in \mathcal{A}$, let $\mathcal{T}_\alpha$ be the topology for $Y_\alpha$. The cartesian product topology in $\prod_\alpha Y_\alpha$ is that having for subbasis all sets
+	\[ \langle U_\beta \rangle = p_\beta^{-1}(U_\beta), \]
+	where $U_\beta$ ranges over all members of $\mathcal{T}_\beta$ and $\beta$ over all elements of $\mathcal{A}$.
+	
+	If any one factor $Y_\alpha = \emptyset$, then the cartesian product is also empty and the topologies of the non-empty factors then play no role in determining that of the product; we wish to exclude such behavior, so we shall assume throughout this book that each factor of any cartesian product of topological spaces is non-empty.
+\end{definition}
+
+\textit{This comes from Ai but it checks out}
+
+\begin{example}
+	Subbasis for the Product Topology on $\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}$
+	Let's illustrate the subbasis for the product topology using the familiar example of $\mathbb{R}^2$.
+	
+	Let $Y_1 = \mathbb{R}$ and $Y_2 = \mathbb{R}$, where both are equipped with the standard topology. In the standard topology on $\mathbb{R}$, open sets are unions of open intervals $(a,b)$.
+	
+	The product space is $\mathbb{R}^2$, which is the Cartesian plane. Our index set here is $\mathcal{A} = \{1, 2\}$.
+	
+	According to the definition, the subbasis for the product topology on $\prod_{\alpha \in \mathcal{A}} Y_\alpha$ (which is $\mathbb{R}^2$ in this case) consists of all sets of the form $p_\beta^{-1}(U_\beta)$, where $U_\beta$ is an open set in $Y_\beta$ and $\beta \in \mathcal{A}$.
+	
+	Let's look at what these sets represent geometrically.
+	
+	First, consider subbasis elements from $p_1^{-1}(U_1)$. Let $U_1$ be an open interval in $\mathbb{R}$, for example, $U_1 = (a,b)$ for some $a,b \in \mathbb{R}$ with $a < b$.
+	The set $p_1^{-1}((a,b))$ consists of all points $(x,y) \in \mathbb{R}^2$ such that their first coordinate $x$ is in the interval $(a,b)$.
+	$$ p_1^{-1}((a,b)) = \{ (x,y) \in \mathbb{R}^2 \mid a < x < b \} $$
+	Geometrically, this represents an \textbf{infinite vertical strip} in the Cartesian plane, extending infinitely in the positive and negative $y$-directions, bounded by vertical lines $x=a$ and $x=b$.
+	
+	Similarly, consider subbasis elements from $p_2^{-1}(U_2)$. Let $U_2$ be an open interval in $\mathbb{R}$, for example, $U_2 = (c,d)$ for some $c,d \in \mathbb{R}$ with $c < d$.
+	The set $p_2^{-1}((c,d))$ consists of all points $(x,y) \in \mathbb{R}^2$ such that their second coordinate $y$ is in the interval $(c,d)$.
+	$$ p_2^{-1}((c,d)) = \{ (x,y) \in \mathbb{R}^2 \mid c < y < d \} $$
+	Geometrically, this represents an \textbf{infinite horizontal strip} in the Cartesian plane, extending infinitely in the positive and negative $x$-directions, bounded by horizontal lines $y=c$ and $y=d$.
+	
+	Therefore, the subbasis $\mathcal{S}$ for the product topology on $\mathbb{R}^2$ is the collection of all such open vertical strips and all such open horizontal strips:
+	$$ \mathcal{S} = \{ p_1^{-1}(U_1) \mid U_1 \text{ is open in } \mathbb{R} \} \cup \{ p_2^{-1}(U_2) \mid U_2 \text{ is open in } \mathbb{R} \} $$
+	
+	\textbf{Forming a Basis from the Subbasis}
+	The product topology is defined by taking the collection of all \textit{finite intersections} of these subbasis elements to form a basis.
+	Consider the intersection of a typical open vertical strip and a typical open horizontal strip:
+	$$ p_1^{-1}((a,b)) \cap p_2^{-1}((c,d)) = \{ (x,y) \in \mathbb{R}^2 \mid a < x < b \text{ and } c < y < d \} $$
+	This precise set is an \textbf{open rectangle} in $\mathbb{R}^2$, often denoted as $(a,b) \times (c,d)$.
+	
+	Since the collection of all open rectangles forms a well-known basis for the standard topology on $\mathbb{R}^2$, this example clearly demonstrates how the subbasis for the product topology correctly generates the familiar "standard" or "Euclidean" topology on $\mathbb{R}^2$. This approach generalizes to any product of topological spaces, ensuring that the projection maps are continuous, which is a fundamental property of the product topology.
+\end{example}
+
+\newpage
+\addcontentsline{toc}{chapter}{References}		
+	\begingroup
+            \printbibliography
+        \endgroup
+\end{document}

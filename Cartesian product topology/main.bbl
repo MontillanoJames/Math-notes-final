@@ -1,0 +1,369 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/apasortcite//global/global/global}
+    \entry{BellezaCM2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f9d11b6017e6e5b2deb34034767a0758}{%
+           family={Belleza},
+           familyi={B\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{fullhash}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{fullhashraw}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{bibnamehash}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{authorbibnamehash}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{authornamehash}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{authorfullhash}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{authorfullhashraw}{f9d11b6017e6e5b2deb34034767a0758}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Last accessed 19 May 2025}
+      \field{title}{Continuous Maps (General Topology).}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://drive.google.com/file/d/1C4QofGsse0Id7WWCgmd424qTMKC51sfJ/view
+      \endverb
+      \verb{url}
+      \verb https://drive.google.com/file/d/1C4QofGsse0Id7WWCgmd424qTMKC51sfJ/view
+      \endverb
+    \endentry
+    \entry{Dugundji1966}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5998b1dba35832b2e7e6f31e3dc6a62d}{%
+           family={Dugundji},
+           familyi={D\bibinitperiod},
+           given={J},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {470 Atlantic Avenue, Boston}%
+      }
+      \list{publisher}{2}{%
+        {Allyn}%
+        {Bacon, Inc.}%
+      }
+      \strng{namehash}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{fullhash}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{fullhashraw}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{bibnamehash}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{authorbibnamehash}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{authornamehash}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{authorfullhash}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{authorfullhashraw}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Topology.}
+      \field{year}{1966}
+    \endentry
+    \entry{holmes_topology}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=96b8b961a0b46e02150e7c743dc4ed77}{%
+           family={Holmes},
+           familyi={H\bibinitperiod},
+           given={Randall\bibnamedelima R.},
+           giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{fullhash}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{fullhashraw}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{bibnamehash}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{authorbibnamehash}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{authornamehash}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{authorfullhash}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{authorfullhashraw}{96b8b961a0b46e02150e7c743dc4ed77}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to Topology}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb https://api.semanticscholar.org/CorpusID:13883851
+      \endverb
+      \verb{url}
+      \verb https://api.semanticscholar.org/CorpusID:13883851
+      \endverb
+    \endentry
+    \entry{lipschutz1965}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e34b010c55f77baaac2ce9b6ffc890a7}{%
+           family={Lipschutz},
+           familyi={L\bibinitperiod},
+           given={Seymour},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill}%
+      }
+      \strng{namehash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{fullhash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{fullhashraw}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{bibnamehash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{authorbibnamehash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{authornamehash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{authorfullhash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{authorfullhashraw}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Schaum's Outline of General Topology}
+      \field{year}{1965}
+    \endentry
+    \entry{morris2020topology}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5145c805f8d3e36bbf375e945c4b5472}{%
+           family={Morris},
+           familyi={M\bibinitperiod},
+           given={Sidney\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Australia}%
+      }
+      \list{publisher}{1}{%
+        {Self-published}%
+      }
+      \strng{namehash}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{fullhash}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{fullhashraw}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{bibnamehash}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{authorbibnamehash}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{authornamehash}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{authorfullhash}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{authorfullhashraw}{5145c805f8d3e36bbf375e945c4b5472}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Version of June 28, 2020}
+      \field{title}{Topology Without Tears}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb http://www.topologywithouttears.net
+      \endverb
+      \verb{url}
+      \verb http://www.topologywithouttears.net
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{BellezaCM2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f9d11b6017e6e5b2deb34034767a0758}{%
+           family={Belleza},
+           familyi={B\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{fullhash}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{fullhashraw}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{bibnamehash}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{authorbibnamehash}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{authornamehash}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{authorfullhash}{f9d11b6017e6e5b2deb34034767a0758}
+      \strng{authorfullhashraw}{f9d11b6017e6e5b2deb34034767a0758}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Last accessed 19 May 2025}
+      \field{title}{Continuous Maps (General Topology).}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://drive.google.com/file/d/1C4QofGsse0Id7WWCgmd424qTMKC51sfJ/view
+      \endverb
+      \verb{url}
+      \verb https://drive.google.com/file/d/1C4QofGsse0Id7WWCgmd424qTMKC51sfJ/view
+      \endverb
+    \endentry
+    \entry{Dugundji1966}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5998b1dba35832b2e7e6f31e3dc6a62d}{%
+           family={Dugundji},
+           familyi={D\bibinitperiod},
+           given={J},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {470 Atlantic Avenue, Boston}%
+      }
+      \list{publisher}{2}{%
+        {Allyn}%
+        {Bacon, Inc.}%
+      }
+      \strng{namehash}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{fullhash}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{fullhashraw}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{bibnamehash}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{authorbibnamehash}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{authornamehash}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{authorfullhash}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \strng{authorfullhashraw}{5998b1dba35832b2e7e6f31e3dc6a62d}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Topology.}
+      \field{year}{1966}
+    \endentry
+    \entry{holmes_topology}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=96b8b961a0b46e02150e7c743dc4ed77}{%
+           family={Holmes},
+           familyi={H\bibinitperiod},
+           given={Randall\bibnamedelima R.},
+           giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{fullhash}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{fullhashraw}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{bibnamehash}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{authorbibnamehash}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{authornamehash}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{authorfullhash}{96b8b961a0b46e02150e7c743dc4ed77}
+      \strng{authorfullhashraw}{96b8b961a0b46e02150e7c743dc4ed77}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to Topology}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb https://api.semanticscholar.org/CorpusID:13883851
+      \endverb
+      \verb{url}
+      \verb https://api.semanticscholar.org/CorpusID:13883851
+      \endverb
+    \endentry
+    \entry{lipschutz1965}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e34b010c55f77baaac2ce9b6ffc890a7}{%
+           family={Lipschutz},
+           familyi={L\bibinitperiod},
+           given={Seymour},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill}%
+      }
+      \strng{namehash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{fullhash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{fullhashraw}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{bibnamehash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{authorbibnamehash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{authornamehash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{authorfullhash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{authorfullhashraw}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Schaum's Outline of General Topology}
+      \field{year}{1965}
+    \endentry
+    \entry{morris2020topology}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5145c805f8d3e36bbf375e945c4b5472}{%
+           family={Morris},
+           familyi={M\bibinitperiod},
+           given={Sidney\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Australia}%
+      }
+      \list{publisher}{1}{%
+        {Self-published}%
+      }
+      \strng{namehash}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{fullhash}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{fullhashraw}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{bibnamehash}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{authorbibnamehash}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{authornamehash}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{authorfullhash}{5145c805f8d3e36bbf375e945c4b5472}
+      \strng{authorfullhashraw}{5145c805f8d3e36bbf375e945c4b5472}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Version of June 28, 2020}
+      \field{title}{Topology Without Tears}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb http://www.topologywithouttears.net
+      \endverb
+      \verb{url}
+      \verb http://www.topologywithouttears.net
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
